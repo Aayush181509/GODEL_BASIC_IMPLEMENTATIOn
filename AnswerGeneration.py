@@ -36,23 +36,27 @@ def QuestionAnswer():
   
 
 
-def start_dialog(input):
-  with open('data/knowledge.json', 'r') as f:
-    # Load the contents of the file into a dictionary
-    # contents = f.read()
-    data = json.load(f)
-  data['DIALOG'].append(input)
-  with open('data/knowledge.json', 'w') as f:
-    json.dump(data,f)
-  answer = QuestionAnswer()
-  print(answer)
-  with open('data/knowledge.json', 'r') as f:
-    # Load the contents of the file into a dictionary
-    # contents = f.read()
-    data = json.load(f)
-  data['DIALOG'].append(answer)
-  with open('data/knowledge.json', 'w') as f:
-    json.dump(data,f)
-  
+def start_dialog():
+  inp=str(input("USER: "))
+  if inp!="":
+    with open('data/knowledge.json', 'r') as f:
+      # Load the contents of the file into a dictionary
+      # contents = f.read()
+      data = json.load(f)
+    data['DIALOG'].append(input)
+    with open('data/knowledge.json', 'w') as f:
+      json.dump(data,f)
+    answer = QuestionAnswer()
+    print(answer)
+    with open('data/knowledge.json', 'r') as f:
+      # Load the contents of the file into a dictionary
+      # contents = f.read()
+      data = json.load(f)
+    data['DIALOG'].append(answer)
+    with open('data/knowledge.json', 'w') as f:
+      json.dump(data,f)
+  else:
+    print("Enter some data first")
+    
 
-start_dialog('Tell me about Teddy AI')
+start_dialog()
